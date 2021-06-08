@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="${path}/resources/css/index.css" />
 <html>
 <head>
-<title>Home</title>
+<title>Home123</title>
 
 <script>
 	$(function() {
