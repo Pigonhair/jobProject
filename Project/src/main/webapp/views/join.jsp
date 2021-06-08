@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>회원가입</title>
+<title>회원가입123123</title>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
