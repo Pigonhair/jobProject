@@ -66,7 +66,7 @@ $(function(){
 				</div>
 				<input type="password" id="member_pwd1" class="input" placeholder="비밀번호" />
 				<input type="password" id="member_pwd2" class="input" placeholder="비밀번호 확인" onKeyUp="fn_compare_pwd();" />
-				<span id="s_result" > hi </span>
+				<span id="s_result" > </span>
 				<input type="text" class="input" placeholder="이름" />
 				<input type="text" class="input" placeholder="주소" />
 				<input type="text" name="date" placeholder="생년월일" class="input datepicker" size="12" /> 
