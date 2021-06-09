@@ -6,44 +6,16 @@
 <meta charset="EUC-KR">
 <title>회원가입</title>
 
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<!--  datepicker  -->
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="./jquery-ui-1.12.1/datepicker-ko.js"></script>
-
-<script type="text/javascript">
-$(function(){
-
-    $(".datepicker").datepicker({
- 	 	dateFormat: 'yy-mm-dd',	//날짜 포맷이다. 보통 yy-mm-dd 를 많이 사용하는것 같다.
-		prevText: '이전 달',	// 마우스 오버시 이전달 텍스트
-        nextText: '다음 달',	// 마우스 오버시 다음달 텍스트
-        closeText: '닫기', // 닫기 버튼 텍스트 변경
-        currentText: '오늘', // 오늘 텍스트 변경
-        monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],	//한글 캘린더중 월 표시를 위한 부분
-        monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],	//한글 캘린더 중 월 표시를 위한 부분
-        dayNames: ['일', '월', '화', '수', '목', '금', '토'],	//한글 캘린더 요일 표시 부분
-        dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],	//한글 요일 표시 부분
-        dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],	// 한글 요일 표시 부분
-        showMonthAfterYear: true,	// true : 년 월  false : 월 년 순으로 보여줌
-        yearSuffix: '년',	//
-        showButtonPanel: true,	// 오늘로 가는 버튼과 달력 닫기 버튼 보기 옵션
-    });
-
-});
-</script>
-<!--  -->
-
-
-
-
-
 
 <!-- css,js 적용 -->
 <link rel="stylesheet" href="${path}/resources/css/join.css" />
-<script type="text/javascript" src="${path}/resources/js/join.js"></script> 
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="${path}/resources/js/join.js"></script>
+<script type="text/javascript" src="${path}/resources/js/datepicker.js"></script>
+<script type="text/javascript" src="${path}/resources/js/jquery-ui.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script> 
 <!---->
 
 </head>
@@ -55,14 +27,15 @@ $(function(){
 			</h2>
 			<div class="form-holder">
 				<div class="join-form">
-				<span><input class="join-id" type="text"> @ <input class="join-id2" name="join-id2" type="text">
-				<select name="select_email" onChange="selectEmail(this)"> 
-				<option value="" selected>선택하세요</option> 
-				<option value="naver.com">naver.com</option> 
-				<option value="gmail.com">gmail.com</option> 
-				<option value="hanmail.com">hanmail.com</option> 
-				<option value="1">직접입력</option> </select>
-				</span>
+					<span>
+					<input class="join-id" type="text"> @ <input class="join-id2" name="join-id2" type="text">
+					<select name="select_email" onChange="selectEmail(this)"> 
+					<option value="" selected>선택하세요</option> 
+					<option value="naver.com">naver.com</option> 
+					<option value="gmail.com">gmail.com</option> 
+					<option value="hanmail.com">hanmail.com</option> 
+					<option value="1">직접입력</option> </select>
+					</span>
 				</div>
 				<input type="password" id="member_pwd1" class="input" placeholder="비밀번호" />
 				<input type="password" id="member_pwd2" class="input" placeholder="비밀번호 확인" onKeyUp="fn_compare_pwd();" />
