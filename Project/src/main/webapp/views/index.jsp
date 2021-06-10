@@ -4,8 +4,7 @@
 <%@ page session="false"%>
 <c:set var="path" value="${pageContext.request.contextPath}" />
 
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css"></script>
 <link rel="stylesheet" href="${path}/resources/css/index.css" />
 <html>
