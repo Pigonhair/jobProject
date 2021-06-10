@@ -1,19 +1,78 @@
-$(function(){
+console.clear();
 
-    $(".datepicker").datepicker({
- 	 	dateFormat: 'yy-mm-dd',	//날짜 포맷이다. 보통 yy-mm-dd 를 많이 사용하는것 같다.
-		prevText: '이전 달',	// 마우스 오버시 이전달 텍스트
-        nextText: '다음 달',	// 마우스 오버시 다음달 텍스트
-        closeText: '닫기', // 닫기 버튼 텍스트 변경
-        currentText: '오늘', // 오늘 텍스트 변경
-        monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],	//한글 캘린더중 월 표시를 위한 부분
-        monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],	//한글 캘린더 중 월 표시를 위한 부분
-        dayNames: ['일', '월', '화', '수', '목', '금', '토'],	//한글 캘린더 요일 표시 부분
-        dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],	//한글 요일 표시 부분
-        dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],	// 한글 요일 표시 부분
-        showMonthAfterYear: true,	// true : 년 월  false : 월 년 순으로 보여줌
-        yearSuffix: '년',	//
-        showButtonPanel: true,	// 오늘로 가는 버튼과 달력 닫기 버튼 보기 옵션
-    });
-
+$(document).ready(function(){
+	const loginBtn = document.getElementById('login');
+	const signupBtn = document.getElementById('signup');
+	
+	
+	loginBtn.addEventListener('click', (e) => {
+		let parent = e.target.parentNode.parentNode;
+		Array.from(e.target.parentNode.parentNode.classList).find((element) => {
+			if(element !== "slide-up") {
+				parent.classList.add('slide-up')
+			}else{
+				signupBtn.parentNode.classList.add('slide-up')
+				parent.classList.remove('slide-up')
+			}
+		});
+	});
+	
+	signupBtn.addEventListener('click', (e) => {
+		let parent = e.target.parentNode;
+		Array.from(e.target.parentNode.classList).find((element) => {
+			if(element !== "slide-up") {
+				parent.classList.add('slide-up')
+			}else{
+				loginBtn.parentNode.parentNode.classList.add('slide-up')
+				parent.classList.remove('slide-up')
+			}
+		});
+	});
 });
+
+
+function selectEmail(ele){ 
+	var $ele = $(ele); 
+	var $email2 = $('input[name=join-id2]'); 
+	if($ele.val() == "1"){ 
+		$email2.attr('readonly', false); 
+		$email2.val(''); 
+	} 
+	else { 
+		$email2.attr('readonly', true); 
+		$email2.val($ele.val());
+	} 
+};
+
+
+ var compare_result = false;
+ function fn_compare_pwd(){
+            var pwd1 = $("#member_pwd1").val();
+            var pwd2 = $("#member_pwd2").val();
+            var $s_result = $("#s_result");
+
+            if(pwd1 == pwd2){
+	           compare_result = true;
+	           $s_result.text("비밀번호가 일치합니다.");
+	           $("#s_result").css({
+	           	"color": "green",
+	           });
+	           return;
+            }
+            
+            compare_result = false;
+            $s_result.text("비밀번호가 일치하지 않습니다.");
+            $("#s_result").css({
+               	"color": "red",
+               	"padding": "10px 10px",
+				"display": "block",
+				"font-size": "15px"
+           	});
+ };
+
+
+
+
+
+
+

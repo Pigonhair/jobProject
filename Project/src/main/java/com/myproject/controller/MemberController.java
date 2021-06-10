@@ -1,15 +1,14 @@
 package com.myproject.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.myproject.model.MemberVO;
 import com.myproject.service.MemberService;
-import com.myproject.service.MemberServiceImpl;
 
 import lombok.extern.log4j.Log4j;
 
@@ -42,11 +41,18 @@ public class MemberController {
 		} else {
 			// 로그인 실패
 			log.info("로그인 실패!");
-			path = "login";
+			path = "/login";
 		}
 
 		return path;
-
+	}
+	
+	@PostMapping("/login2")
+	public Map<String, String> LoginPost2(MemberVO vo) {
+		log.info("로그인2컨트롤러들어옴");
+		Map<String,String> map = new HashMap<String,String>();
+		
+		return map;
 	}
 
 }
