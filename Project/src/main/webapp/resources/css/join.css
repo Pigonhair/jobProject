@@ -274,13 +274,14 @@ body {
 
 .phone {
 	border: 0;
-	outline: none;
-	box-shadow: none;
-	height: 30px;
-	line-height: 30px;
-	padding: 8px 15px;
-	width: 14%;
-	font-size: 12px;
+    outline: none;
+    box-shadow: none;
+    height: 30px;
+    line-height: 30px;
+    padding: 8px 15px;
+    width: 60%;
+    font-size: 12px;
+    
 }
 
 .stick {

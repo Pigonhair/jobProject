@@ -6,20 +6,17 @@
 <meta charset="EUC-KR">
 <title>회원가입</title>
 
-
 <!-- css,js 적용 -->
 <link rel="stylesheet" href="${path}/resources/css/join.css" />
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="${path}/resources/js/join.js"></script>
 <script type="text/javascript" src="${path}/resources/js/datepicker.js"></script>
+<script type="text/javascript" src="${path}/resources/js/form-validate.js"></script>
 <script type="text/javascript" src="${path}/resources/js/jquery-ui.js"></script>
 <script type="text/javascript" src="${path}/resources/js/SMS.js"></script>
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<!---->
-
+<!-- css,js 적용 -->
 
 
 </head>
@@ -48,19 +45,14 @@
 				<input type="text" class="input" placeholder="주소" /> 
 				<input type="text" name="date" placeholder="생년월일" class="input datepicker" size="12" />
 				<div class="join-form">
-					<span class="stick"><input type="text" class="phone" id="inputPhoneNumber" placeholder="앞자리" /></span>
-<!-- 						 - </span> <span class="stick"><input -->
-<!-- 						type="text" class="phone" placeholder="중간자리" /> - </span> <span><input -->
-<!-- 						type="text" class="phone" placeholder="끝자리" /></span> -->
-						<input type="hidden" id="inputPhoneNumber" ></input>  
-						<span><button class="c-number" id="sendPhoneNumber" onclick="smsclick();">인증번호 받기</button></span>
+					<span class="stick"><input type="text" class="phone" id="inputPhoneNumber" placeholder="전화번호" /></span>
+					<input type="hidden" id="inputPhoneNumber" ></input>  
+					<span><button class="c-number" id="sendPhoneNumber" onclick="smsclick();">인증번호 받기</button></span>
 				</div>
-				<input type="text" class="input" placeholder="인증번호" id = "inputCertifiedNumber"/>
+				<input type="text" class="phone" placeholder="인증번호" id = "inputCertifiedNumber"/>
 				<span><button class="c-number" id = "checkBtn">인증확인</button></span>
-				
-
 			</div>
-			<button class="submit-btn">Sign up</button>
+			<button class="submit-btn" onclick="form_chk();">Sign up</button>
 		</div>
 		<div class="login slide-up">
 			<div class="center">
