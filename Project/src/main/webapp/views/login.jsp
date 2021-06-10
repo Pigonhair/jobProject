@@ -35,7 +35,8 @@
     <input id="password" name ="m_pwd" class='lf--input' placeholder='Password' type='password'>
   </div>
   <input class='lf--submit' type='submit' value='LOGIN'>
-  <input class='lf--submit2' type='button' value='회원가입' onClick="location.href='join.jsp'">
+  <input class='lf--submit2' type='button' value='회원가입' onClick="location.href='/views/join.jsp'">
+  
 </form>
 <a class='lf--forgot' href='#'>비밀번호를 잊어버렸나요?</a>
 

@@ -42,7 +42,7 @@ public class MemberController {
 		} else {
 			// 로그인 실패
 			log.info("로그인 실패!");
-			path = "login";
+			path = "/login";
 		}
 
 		return path;

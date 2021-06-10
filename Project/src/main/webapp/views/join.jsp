@@ -14,8 +14,10 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="${path}/resources/js/join.js"></script>
 <script type="text/javascript" src="${path}/resources/js/datepicker.js"></script>
+<script type="text/javascript" src="${path}/resources/js/form-validate.js"></script>
 <script type="text/javascript" src="${path}/resources/js/jquery-ui.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script> 
+
 <!---->
 
 </head>
@@ -37,21 +39,21 @@
 					<option value="1">직접입력</option> </select>
 					</span>
 				</div>
-				<input type="password" id="member_pwd1" class="input" placeholder="비밀번호" />
-				<input type="password" id="member_pwd2" class="input" placeholder="비밀번호 확인" onKeyUp="fn_compare_pwd();" />
+				<input type="password" id="member_pwd1" class="input" placeholder="비밀번호" onchange="fn_compare_pwd();" />
+				<input type="password" id="member_pwd2" class="input" placeholder="비밀번호 확인" onchange="fn_compare_pwd();" />
 				<span id="s_result" > </span>
-				<input type="text" class="input" placeholder="이름" />
-				<input type="text" class="input" placeholder="주소" />
-				<input type="text" name="date" placeholder="생년월일" class="input datepicker" size="12" /> 
+				<input type="text" class="input" id="m_name" placeholder="이름" />
+				<input type="text" class="input" id="m_address" placeholder="주소" />
+				<input type="text" name="date" id="m_date" placeholder="생년월일" class="input datepicker" size="12" /> 
 				<div class="join-form">
-				<span class="stick"><input type="text" class="phone" placeholder="앞자리" /> - </span>
-				<span class="stick"><input type="text" class="phone" placeholder="중간자리" /> - </span>
-				<span><input type="text" class="phone" placeholder="끝자리" /></span>
+				<span class="stick"><input type="text" class="phone" id="p_first" placeholder="앞자리" /> - </span>
+				<span class="stick"><input type="text" class="phone" id="p_mid" placeholder="중간자리" /> - </span>
+				<span><input type="text" class="phone" id="p_last" placeholder="끝자리" /></span>
 				<span><button class="c-number">인증번호 받기</button></span></div>
 				<input type="text" class="input" placeholder="인증번호" />
 				
 			</div>
-			<button class="submit-btn">Sign up</button>
+			<button class="submit-btn" onclick="form_chk();">Sign up</button>
 		</div>
 		<div class="login slide-up">
 			<div class="center">
