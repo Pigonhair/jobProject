@@ -47,12 +47,26 @@ public class MemberController {
 		return path;
 	}
 	
-	@PostMapping("/login2")
-	public Map<String, String> LoginPost2(MemberVO vo) {
-		log.info("로그인2컨트롤러들어옴");
-		Map<String,String> map = new HashMap<String,String>();
+	@PostMapping("/join")
+	// => @RequestMapping(value="login", method=RequestMethod.POST)
+	public String joinPost(MemberVO vo) {
+		log.info("회원가입컨트롤러들어옴");
+
+		String path = "";
 		
-		return map;
+		int n = memberService.insertMember(vo);
+		if (n > 0) {
+			log.info("회원가입 성공!");
+			path = "index";
+            
+		} else {
+			log.info("회원가입 실패!");
+			return "";
+		}
+
+		return path;
 	}
+	
+	
 
 }
