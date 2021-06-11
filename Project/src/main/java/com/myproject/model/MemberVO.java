@@ -27,7 +27,6 @@ public class MemberVO {
 	private String m_img;
 	private String cache;
 	private String token;
-	private String pi_yn;
 	
 	public int getM_num() {
 		return m_num;
@@ -95,17 +94,12 @@ public class MemberVO {
 	public void setToken(String token) {
 		this.token = token;
 	}
-	public String getPi_yn() {
-		return pi_yn;
-	}
-	public void setPi_yn(String pi_yn) {
-		this.pi_yn = pi_yn;
-	}
+	
 	@Override
 	public String toString() {
 		return "MemberVO [m_num=" + m_num + ", m_id=" + m_id + ", m_pwd=" + m_pwd + ", m_name=" + m_name
 				+ ", m_address=" + m_address + ", m_phone=" + m_phone + ", m_department=" + m_department + ", m_grade="
-				+ m_grade + ", m_img=" + m_img + ", cache=" + cache + ", token=" + token + ", pi_yn=" + pi_yn + "]";
+				+ m_grade + ", m_img=" + m_img + ", cache=" + cache + ", token=" + token + " ]";
 	}
 	
 	
