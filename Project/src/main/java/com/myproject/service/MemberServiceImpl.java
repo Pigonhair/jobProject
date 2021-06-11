@@ -25,9 +25,8 @@ public class MemberServiceImpl implements MemberService {
 		int n=0;
 		// 시퀀스 mem_num 적용하고
 		vo.setM_num(mapper.selectMem_num());
-		System.out.println("vo에서 가져온 m_num의 값은 1: " + vo.getM_num());
+		System.out.println("vo에서 가져온 m_num의 값은 : " + vo.getM_num());
 		log.info("MemberVO : " + vo);
-		System.out.println(vo);
 		n = mapper.insertMember(vo);
 		return n;
 		

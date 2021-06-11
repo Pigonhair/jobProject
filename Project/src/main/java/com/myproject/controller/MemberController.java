@@ -55,6 +55,7 @@ public class MemberController {
 		String path = "";
 		
 		int n = memberService.insertMember(vo);
+		log.info("n값은 : " + n);
 		if (n > 0) {
 			log.info("회원가입 성공!");
 			path = "index";

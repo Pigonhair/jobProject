@@ -25,4 +25,3 @@ create sequence mem_num nocache nocycle;
 INSERT INTO MEMBER (m_num, m_id,m_pwd, m_name, m_address, m_phone, m_department, m_grade, m_img, cache, token) 
 VALUES (mem_num.nextval, 'ab', '1234', '관리자', '서초구 반포대로', '','관리자','5',' ',' ',' ');
 
-m_num=5, m_id=a, m_pwd=1, m_name=b, m_address=c, m_phone=, m_department=null, m_grade=null, m_img=null, cache=null, token=null, pi_yn=null
