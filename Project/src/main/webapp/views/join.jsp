@@ -12,6 +12,7 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="${path}/resources/js/join.js"></script>
+<script type="text/javascript" src="${path}/resources/js/login.js"></script>
 <script type="text/javascript" src="${path}/resources/js/datepicker.js"></script>
 <script type="text/javascript" src="${path}/resources/js/form-validate.js"></script>
 <script type="text/javascript" src="${path}/resources/js/jquery-ui.js"></script>
@@ -33,7 +34,7 @@
 				<div class="form-holder">
 					<div class="join-form">
 						<span>
-						<input class="join-id" type="text" name="m_id"> @ <input class="join-id2" name="join-id2" type="text">
+						<input class="join-id" type="text" id="member_id" name="m_id" onKeyUp="fn_compare_id();"> @ <input class="join-id2" name="join-id2" type="text">
 						<select name="select_email" onChange="selectEmail(this)"> 
 						<option value="" selected>선택하세요</option> 
 						<option value="naver.com">naver.com</option> 
@@ -42,6 +43,7 @@
 						<option value="1">직접입력</option> </select>
 						</span>
 					</div>
+					<span id="idcheck_result"></span> 
 					<input type="password" id="member_pwd1" name="m_pwd" class="input" placeholder="비밀번호" /> 
 					<input type="password" id="member_pwd2"	class="input" placeholder="비밀번호 확인" onKeyUp="fn_compare_pwd();" />
 					<span id="s_result"></span> 
@@ -72,13 +74,14 @@
 				<h2 class="form-title" id="login">
 					<span>or</span>Log in
 				</h2>
-				<form class='login-form' action="/login" method=post>
+				<form class='login-form' id="form_login"> 
 					<div class="form-holder">
-						<input type="text" class="input" name="m_id" placeholder="Email" />
-						<input type="password" class="input" name="m_pwd"
-							placeholder="Password" />
+						<input type="text" class="input" name="m_id" id="username" placeholder="Email" onKeyUp="idkeyUP();" />
+						<span id="idresult" class="result"></span>
+						<input type="password" class="input" name="m_pwd" id="password" placeholder="Password" onKeyUp="pwdkeyUP();"/>
+						<span id="pwdresult" class="result"></span>
 					</div>
-					<button type="submit" class="submit-btn">Log in</button>
+					<input type="button" class="submit-btn" onClick="loginClick()" id="loginBtn" value="Log in">
 				</form>
 			</div>
 		</div>

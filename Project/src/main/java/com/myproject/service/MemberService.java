@@ -1,5 +1,6 @@
 package com.myproject.service;
 
+
 import com.myproject.model.MemberVO;
 
 public interface MemberService {
@@ -8,5 +9,8 @@ public interface MemberService {
 	public int insertMember(MemberVO vo);
 	
 	/* 로그인 하기 */
-	public MemberVO checkMemberIdPwd(MemberVO vo);
+	public MemberVO checkMemberIdPwd(String m_id,  String m_pwd);
+	
+	/* 아이디 중복체크 */
+	public MemberVO IdCheck(String m_id);
 }
