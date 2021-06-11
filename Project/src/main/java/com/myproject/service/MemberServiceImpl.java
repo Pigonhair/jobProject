@@ -1,11 +1,8 @@
 package com.myproject.service;
 
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.myproject.controller.MemberController;
 import com.myproject.mapper.MemberMapper;
 import com.myproject.model.MemberVO;
 
@@ -35,9 +32,16 @@ public class MemberServiceImpl implements MemberService {
 
 	// 로그인
 	@Override
-	public MemberVO checkMemberIdPwd(MemberVO vo) {
-		MemberVO memberVO = mapper.checkMemberIdPwd(vo);
-		return memberVO;
+	public MemberVO checkMemberIdPwd(String m_id, String m_pwd) {
+		MemberVO vo = mapper.checkMemberIdPwd(m_id, m_pwd);
+		return vo;
+	}
+
+	// ID중복체크
+	@Override
+	public MemberVO IdCheck(String m_id) {
+		MemberVO vo = mapper.IdCheck(m_id);
+		return vo;
 	}
 
 }

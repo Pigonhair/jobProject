@@ -1,11 +1,11 @@
 package com.myproject.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.myproject.model.MemberVO;
 import com.myproject.service.MemberService;
@@ -24,42 +24,49 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 
+	@ResponseBody
 	@PostMapping("/login")
 	// => @RequestMapping(value="login", method=RequestMethod.POST)
-	public String LoginPost(MemberVO vo) {
+	public String LoginPost(@RequestParam("id") String m_id,
+			@RequestParam("pwd") String m_pwd) {
 		log.info("로그인컨트롤러들어옴");
-		log.info("MemberVO : " + vo);
 
-		String path = "";
-
-		MemberVO member = memberService.checkMemberIdPwd(vo);
+		// 클라이언트가 보낸 ID값
+		String ID = m_id.trim();
+		log.info("id값은: "+ ID);
+		// 클라이언트가 보낸 PWD값
+		String PWD = m_pwd.trim();
+		log.info("pwd값은: "+ PWD);
+		
+		
+		MemberVO member = memberService.checkMemberIdPwd(ID,PWD);
 		if (member != null) {
 			// 로그인 성공
 			log.info("로그인 성공!");
-			path = "index";
-            
+			return "1";
+
 		} else {
 			// 로그인 실패
 			log.info("로그인 실패!");
-			path = "/login";
+			return "0";
 		}
-
-		return path;
+	
 	}
 	
+
 	@PostMapping("/join")
 	// => @RequestMapping(value="login", method=RequestMethod.POST)
 	public String joinPost(MemberVO vo) {
 		log.info("회원가입컨트롤러들어옴");
 
 		String path = "";
-		
+
 		int n = memberService.insertMember(vo);
 		log.info("n값은 : " + n);
 		if (n > 0) {
 			log.info("회원가입 성공!");
 			path = "index";
-            
+
 		} else {
 			log.info("회원가입 실패!");
 			return "";
@@ -67,7 +74,27 @@ public class MemberController {
 
 		return path;
 	}
-	
-	
+
+	@ResponseBody
+	@PostMapping("/idCheck")
+	// => @RequestMapping(value="idCheck", method=RequestMethod.POST)
+	public String idCheckPost(@RequestParam("id") String m_id) {
+		log.info("idCheck컨트롤러들어옴");
+
+		// 클라이언트가 보낸 ID값
+		String ID = m_id.trim();
+		log.info("id값은: "+ ID);
+		
+		MemberVO member = memberService.IdCheck(ID);
+			
+		if(member != null) {//결과 값이 있으면 아이디 존재	
+			return "-1";
+		} else {		//없으면 아이디 존재 X
+			log.info("null");
+			return "0";
+		}
+		
+				
+	}
 
 }

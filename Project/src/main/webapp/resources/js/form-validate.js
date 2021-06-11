@@ -1,5 +1,5 @@
 $(document).ready(function() {
-		//빈칸 체크
+	//빈칸 체크
 	$('#form_id').submit(function() {
 		var id = $(".join-id").val();
 		var id2 = $(".join-id2").val();
@@ -45,43 +45,33 @@ $(document).ready(function() {
 			$("#inputPhoneNumber").focus();
 			return false;
 		}
-		if(sms_chk == 'N'){
+		if (sms_chk == 'N') {
 			alert("전화번호 인증 하세요.")
 			$("#inputPhoneNumber").focus();
 			return false;
 		}
-		
+
 
 	});
 
+
 });
 //비밀번호 
-	var compare_result = false;
-	
-	function fn_compare_pwd() {
-		var pwd1 = $("#member_pwd1").val();
-		var pwd2 = $("#member_pwd2").val();
-		var $s_result = $("#s_result");
+var compare_result = false;
 
-		if (pwd1 == pwd2) {
-			compare_result = true;
-			$s_result.text("비밀번호가 일치합니다.");
-			$("#s_result").css({
-				"color": "green",
-			});
-			if (pwd1 == "" || pwd2 == "" || pwd1 == null || pwd2 == null) {
-				$s_result.text("비밀번호를 입력해주세요.");
-				$("#s_result").css({
-					"color": "red",
-					"padding": "10px 10px",
-					"display": "block",
-					"font-size": "15px"
-				});
-			}
-		}
-		else {
-			compare_result = false;
-			$s_result.text("비밀번호가 일치하지 않습니다.");
+function fn_compare_pwd() {
+	var pwd1 = $("#member_pwd1").val();
+	var pwd2 = $("#member_pwd2").val();
+	var $s_result = $("#s_result");
+
+	if (pwd1 == pwd2) {
+		compare_result = true;
+		$s_result.text("비밀번호가 일치합니다.");
+		$("#s_result").css({
+			"color": "green",
+		});
+		if (pwd1 == "" || pwd2 == "" || pwd1 == null || pwd2 == null) {
+			$s_result.text("비밀번호를 입력해주세요.");
 			$("#s_result").css({
 				"color": "red",
 				"padding": "10px 10px",
@@ -89,20 +79,60 @@ $(document).ready(function() {
 				"font-size": "15px"
 			});
 		}
-	};
+	}
+	else {
+		compare_result = false;
+		$s_result.text("비밀번호가 일치하지 않습니다.");
+		$("#s_result").css({
+			"color": "red",
+			"padding": "10px 10px",
+			"display": "block",
+			"font-size": "15px"
+		});
+	}
+};
 
 
-	//이메일
-	function selectEmail(ele) {
-		var $ele = $(ele);
-		var $email2 = $('input[name=join-id2]');
-		if ($ele.val() == "1") {
-			$email2.attr('readonly', false);
-			$email2.val('');
-		}
-		else {
-			$email2.attr('readonly', true);
-			$email2.val($ele.val());
-		}
-	};
+//이메일
+function selectEmail(ele) {
+	var $ele = $(ele);
+	var $email2 = $('input[name=join-id2]');
+	if ($ele.val() == "1") {
+		$email2.attr('readonly', false);
+		$email2.val('');
+	}
+	else {
+		$email2.attr('readonly', true);
+		$email2.val($ele.val());
+	}
+};
+
+
+// join.jsp에서 공백x
+
+function idkeyUP() {
+	var id = $("#username").val();
+	var $idresult = $("#idresult");
+
+	if (id !== "" || id !== null) {
+		$idresult.text("");
+		$("#idresult").css({			
+			"padding": "0px"			
+		});
+
+	}
+}
+
+function pwdkeyUP() {
+	var pwd = $("#password").val();
+	var $pwdresult = $("#pwdresult");
+
+	if (pwd !== "" || pwd !== null) {
+		$pwdresult.text("");
+		$("#pwdresult").css({			
+			"padding": "0px"			
+		});
+
+	}
+}
 

@@ -58,9 +58,14 @@ body:before {
 }
 
 .flex-row {
-	display: flex;
-	margin-bottom: 1em;
+	display: flex;	
 }
+
+.result {
+	margin-bottom: 1em;
+	display: flex;
+}
+
 
 .lf--label {
 	width: 2em;
@@ -96,6 +101,7 @@ body:before {
 	font-size: 0.75em;
 	font-weight: 600;
 	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+	
 }
 
 .lf--submit2 {
@@ -125,6 +131,7 @@ body:before {
 	text-align: center;
 	position: relative;
 }
+
 
 ::-moz-placeholder {
 	color: #8f8f8f;

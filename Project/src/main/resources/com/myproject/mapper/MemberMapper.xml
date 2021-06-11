@@ -26,7 +26,15 @@
 	</insert>
 
 	<!-- 멤버(로그인) -->
-	<select id="checkMemberIdPwd" resultType="MemberVO">
+	<select id="checkMemberIdPwd" resultType="MemberVO" parameterType="map">
 		SELECT * FROM MEMBER WHERE M_ID = #{m_id} AND M_PWD = #{m_pwd} 
 	</select>
+	
+	<!-- ID중복체크 -->
+	<select id="IdCheck" resultType="MemberVO">
+		SELECT * FROM MEMBER WHERE M_ID = #{m_id}
+	</select>
+	
+	
+	
 </mapper>
