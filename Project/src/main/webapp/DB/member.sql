@@ -1,4 +1,3 @@
-
 select * from member;
 
 CREATE TABLE MEMBER (

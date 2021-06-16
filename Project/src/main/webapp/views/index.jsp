@@ -50,9 +50,15 @@
 		<header id="masthead" role="banner">
 				
 			<div class="container">
+<!-- 			<form action="/profilelist" method="post" id="profile_listForm"> -->
+			<button class="portfolioBtn" >
+					<a class="portfolioSpan" href="/profilelist">포트폴리오</a>
+				</button>
+<!-- 				</form>> -->
 			<button class="LoginBtn">
 					<a class="LoginSpan" href="${path}/views/login.jsp">로그인</a>
 				</button>
+				
 				<button class="hamburger hamburger--boring" type="button">
 					<span class="hamburger-box"> <span class="hamburger-inner"></span>
 					</span> <span class="hamburger-label">Menu</span>

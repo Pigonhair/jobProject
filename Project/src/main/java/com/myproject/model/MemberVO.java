@@ -28,6 +28,7 @@ public class MemberVO {
 	private String cache;
 	private String token;
 	
+	
 	public int getM_num() {
 		return m_num;
 	}
