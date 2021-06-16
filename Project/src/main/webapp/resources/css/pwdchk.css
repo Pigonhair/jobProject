@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+
+
+.pwdchkid-input {
+	flex: 1;
+	padding: 1em;
+	border: 0;
+	color: #000000;
+	font-size: 1rem;
+}
+.pwdchkpwd-input {
+	flex: 1;
+	padding: 1em;
+	border: 0;
+	color: #8f8f8f;
+	font-size: 1rem;
+	margin-top: 15px;
+}
+
+.pwdchkpwd-input:focus {
+	outline: none;
+	transition: transform 0.15s ease;
+	transform: scale(1.1);
+}
+
+

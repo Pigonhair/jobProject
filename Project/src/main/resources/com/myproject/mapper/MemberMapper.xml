@@ -15,14 +15,14 @@
 		m_address,
 		m_phone,
 		m_department,
-		m_grade, m_img, cache, token)
+		m_grade, m_img, cache, token, salt)
 		VALUES
 		(#{m_num},
 		#{m_id},
 		#{m_pwd}, #{m_name}, #{m_address}, #{m_phone},
 		#{m_department},
 		#{m_grade}, #{m_img},
-		#{cache}, #{token})
+		#{cache}, #{token},#{salt})
 	</insert>
 
 	<!-- 멤버(로그인) -->
@@ -33,6 +33,16 @@
 	<!-- ID중복체크 -->
 	<select id="IdCheck" resultType="MemberVO">
 		SELECT * FROM MEMBER WHERE M_ID = #{m_id}
+	</select>
+	
+	<!-- ID중복체크 -->
+	<select id="SaltCheck" resultType="MemberVO">
+		SELECT salt FROM MEMBER WHERE M_ID = #{m_id}
+	</select>
+	
+	<!-- 사용자 리스트 -->
+	<select id="UserList" resultType="HashMap">
+		SELECT * FROM MEMBER
 	</select>
 	
 	

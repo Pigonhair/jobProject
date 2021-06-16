@@ -1,7 +1,9 @@
+<%@page import="javax.websocket.Session"%>
+<%@page import="com.myproject.model.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
+<%@ page session="true"%>
 <c:set var="path" value="${pageContext.request.contextPath}" />
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -50,9 +52,18 @@
 		<header id="masthead" role="banner">
 				
 			<div class="container">
-			<button class="LoginBtn">
-					<a class="LoginSpan" href="${path}/views/login.jsp">로그인</a>
-				</button>
+				<c:choose >
+					<c:when test="${empty loginOK}">
+						<div class="LoginBtn" style="padding-top:7px;">
+							<a class="LoginSpan" href="${path}/views/login.jsp">로그인</a>
+						</div>
+					</c:when>
+					<c:when test="${!empty loginOK}">
+						<h2 class="IndexName">${loginOK.name}님 환영합니다.</h2>
+					</c:when>
+				</c:choose>
+					
+			
 				<button class="hamburger hamburger--boring" type="button">
 					<span class="hamburger-box"> <span class="hamburger-inner"></span>
 					</span> <span class="hamburger-label">Menu</span>
@@ -80,37 +91,23 @@
 							<li><a href="#">Client Partners</a></li>
 						</ul>
 					</div>
+					
 					<div class="col">
-						<h4>Company</h4>
+						<h4>My Page</h4>
+					</div>
+					
+					<div class="col">
+						<h4>Manager</h4>
 						<ul>
-							<li><a href="#">Our Story</a></li>
-							<li><a href="#">Our Team</a></li>
-							<li><a href="#">Our Culture</a></li>
-							<li><a href="#">News</a></li>
-							<li><a href="#">Join Us</a></li>
+							<li><a href="/userList">Delete account</a></li>
 						</ul>
 					</div>
-					<div class="col">
-						<h4>Approach</h4>
-						<ul>
-							<li><a href="#">Digital Transformation</a></li>
-							<li><a href="#">Digital Readiness Tool</a></li>
-							<li><a href="#">Solution Partners</a></li>
-						</ul>
-					</div>
-					<div class="col">
-						<ul class="social">
-							<li><a href=""><svg title="Facebook">
-										<use xlink:href="#icon-facebook"></use></svg></a></li>
-							<li><a href=""><svg title="Twitter">
-										<use xlink:href="#icon-twitter"></use></svg></a></li>
-							<li><a href=""><svg title="LinkedIn">
-										<use xlink:href="#icon-linkedin"></use></svg></a></li>
-						</ul>
-					</div>
+					
 				</nav>
 			</div>
 		</header>
+		
+	
 	</div>
 
 

@@ -27,7 +27,14 @@ public class MemberVO {
 	private String m_img;
 	private String cache;
 	private String token;
+	private String salt;
 	
+	public String getSalt() {
+		return salt;
+	}
+	public void setSalt(String salt) {
+		this.salt = salt;
+	}
 	public int getM_num() {
 		return m_num;
 	}
@@ -99,7 +106,7 @@ public class MemberVO {
 	public String toString() {
 		return "MemberVO [m_num=" + m_num + ", m_id=" + m_id + ", m_pwd=" + m_pwd + ", m_name=" + m_name
 				+ ", m_address=" + m_address + ", m_phone=" + m_phone + ", m_department=" + m_department + ", m_grade="
-				+ m_grade + ", m_img=" + m_img + ", cache=" + cache + ", token=" + token + " ]";
+				+ m_grade + ", m_img=" + m_img + ", cache=" + cache + ", token=" + token + ", salt=" + salt +" ]";
 	}
 	
 	

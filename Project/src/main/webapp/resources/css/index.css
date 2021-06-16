@@ -270,7 +270,6 @@ https://www.html5rocks.com/en/tutorials/speed/high-performance-animations/
   } 
   
   #site-nav .col:last-child {
-    display: flex;
     justify-content: flex-end;
   }  
 }
@@ -455,4 +454,10 @@ height:40px;
 
 .LoginSpan{
 padding: 10px 25px 10px 0;
+}
+.IndexName{
+	float: right;
+    margin: 15px 50px 0px 20px;
+    height: 40px;
+    padding-top: 7px;
 }

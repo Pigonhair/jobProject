@@ -1,12 +1,23 @@
 package com.myproject.controller;
 
+import java.util.HashMap;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.myproject.jsondata.JsonData;
 import com.myproject.model.MemberVO;
 import com.myproject.service.MemberService;
 
@@ -17,8 +28,8 @@ import lombok.extern.log4j.Log4j;
 @RequestMapping("/member/*")의 경우 '/member'로 시작하는 모든 처리를 MemberController.java 가 하도록 지정하는 역할 */
 
 @Controller
-//@RequestMapping("/member/*")
 @Log4j
+
 public class MemberController {
 
 	@Autowired
@@ -27,7 +38,7 @@ public class MemberController {
 	@ResponseBody
 	@PostMapping("/login")
 	// => @RequestMapping(value="login", method=RequestMethod.POST)
-	public String LoginPost(@RequestParam("id") String m_id,
+	public String LoginPost(HttpServletRequest request, @RequestParam("id") String m_id,
 			@RequestParam("pwd") String m_pwd) {
 		log.info("로그인컨트롤러들어옴");
 
@@ -38,11 +49,12 @@ public class MemberController {
 		String PWD = m_pwd.trim();
 		log.info("pwd값은: "+ PWD);
 		
-		
+		HttpSession session=request.getSession();
 		MemberVO member = memberService.checkMemberIdPwd(ID,PWD);
 		if (member != null) {
 			// 로그인 성공
-			log.info("로그인 성공!");
+			log.info("로그인 성공!");			
+			session.setAttribute("loginOK", JsonData.MemverJsonData(member));
 			return "1";
 
 		} else {
@@ -93,8 +105,20 @@ public class MemberController {
 			log.info("null");
 			return "0";
 		}
+	}
+	
+	
+	@RequestMapping(value="userList", method=RequestMethod.GET)
+	public ModelAndView UserListGet() {
+		log.info("사용자 리스트");
+
+		List<HashMap<String, MemberVO>> vo = memberService.UserList();
 		
-				
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/account/userdelete");
+	    mav.addObject("list", vo);
+		
+		return mav;
 	}
 
 }

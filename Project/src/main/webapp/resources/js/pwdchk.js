@@ -1,23 +1,9 @@
+//비밀번호 체크하는 서비스 만들고 ajax처리
 $(document).ready(function() {
-//로그인버튼
-
-	$("#loginBtn").click(function() {
-		var m_id = $('#username').val();
+	$("#pwdChk").click(function() {
+		var m_id = $('#userid').val();
 		var m_pwd = $('#password').val();
-		var $idresult = $("#idresult");
-		var $pwdresult = $("#pwdresult");
-
-		if (m_id == "") {
-			$idresult.text("아이디를 입력해주세요");
-			$("#idresult").css({
-				"color": "red",
-				"padding": "10px 10px 0px 10px",
-				"display": "block",
-				"font-size": "15px"
-			});
-			$('#username').focus();
-			return false;
-		}
+		
 		if (m_pwd == "") {
 			$pwdresult.text("비밀번호를 입력해주세요");
 			$("#pwdresult").css({
@@ -28,6 +14,7 @@ $(document).ready(function() {
 			});
 			$('#password').focus();
 			return false;
+			
 		} else {
 			$.ajax({
 				url: '/login',
@@ -60,31 +47,4 @@ $(document).ready(function() {
 		}
 
 	});
-
 });
-
-function idkeyUP() {
-	var id = $("#username").val();
-	var $idresult = $("#idresult");
-
-	if (id !== "" || id !== null) {
-		$idresult.text("");
-		$("#idresult").css({			
-			"padding": "0px"			
-		});
-
-	}
-}
-
-function pwdkeyUP() {
-	var pwd = $("#password").val();
-	var $pwdresult = $("#pwdresult");
-
-	if (pwd !== "" || pwd !== null) {
-		$pwdresult.text("");
-		$("#pwdresult").css({			
-			"padding": "0px"			
-		});
-
-	}
-}

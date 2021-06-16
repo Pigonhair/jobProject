@@ -1,6 +1,9 @@
 package com.myproject.mapper;
 
 
+import java.util.HashMap;
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 import com.myproject.model.MemberVO;
@@ -18,6 +21,12 @@ public interface MemberMapper {
 	
 	/* ID중복체크하기 */
 	public MemberVO IdCheck(String m_id);
+	
+	/* Salt체크하기 */
+	public MemberVO SaltCheck(String m_id);
+
+	/* 사용자 리스트 */
+	public List<HashMap<String, MemberVO>> UserList();
 
 	
 
