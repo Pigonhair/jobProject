@@ -455,9 +455,23 @@ height:40px;
 .LoginSpan{
 padding: 10px 25px 10px 0;
 }
+
 .IndexName{
 	float: right;
     margin: 15px 50px 0px 20px;
     height: 40px;
     padding-top: 7px;
+}
+
+.portfolioBtn{
+float:right;
+margin:15px 50px 0 20px;
+background: url(../img/ico-login.png) no-repeat right center;
+font-size: 15px;
+height:40px;
+cursor: pointer; 
+}
+
+.portfolioSpan{
+padding: 10px 25px 10px 0;
 }

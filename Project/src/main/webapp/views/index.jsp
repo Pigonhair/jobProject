@@ -52,6 +52,8 @@
 		<header id="masthead" role="banner">
 				
 			<div class="container">
+
+
 				<c:choose >
 					<c:when test="${empty loginOK}">
 						<div class="LoginBtn" style="padding-top:7px;">
@@ -60,10 +62,19 @@
 					</c:when>
 					<c:when test="${!empty loginOK}">
 						<h2 class="IndexName">${loginOK.name}님 환영합니다.</h2>
+						<!-- 			<form action="/profilelist" method="post" id="profile_listForm"> -->
+			<button class="portfolioBtn" >
+					<a class="portfolioSpan" href="/profilelist">포트폴리오</a>
+				</button>
+<!-- 				</form>> -->
 					</c:when>
 				</c:choose>
 					
 			
+
+
+		
+
 				<button class="hamburger hamburger--boring" type="button">
 					<span class="hamburger-box"> <span class="hamburger-inner"></span>
 					</span> <span class="hamburger-label">Menu</span>

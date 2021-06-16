@@ -35,6 +35,7 @@ public class MemberVO {
 	public void setSalt(String salt) {
 		this.salt = salt;
 	}
+
 	public int getM_num() {
 		return m_num;
 	}
