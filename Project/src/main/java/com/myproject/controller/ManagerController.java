@@ -24,7 +24,7 @@ import lombok.extern.log4j.Log4j;
 
 @Controller
 @Log4j
-@RequestMapping("/manager/*")
+
 public class ManagerController {
 
 	@Autowired
@@ -54,6 +54,16 @@ public class ManagerController {
 		return "";
 	}
 	
-
+	@PostMapping("/m_grade")
+	   // => @RequestMapping(value="login", method=RequestMethod.POST)
+	   public String GradeChangePost(HttpServletRequest request, MemberVO vo) {
+	      log.info("계정 등급 변경");
+	      
+	      
+	      log.info("아이디값 : " + vo.getM_id());
+	      log.info("등급 : " + vo.getM_grade());
+	      
+	      return "";
+	   }
 
 }

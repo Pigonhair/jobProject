@@ -26,15 +26,9 @@ body {
   -webkit-perspective: 1000;
   perspective: 1000;
 }
-.flip-box:hover .back {
-  transform: rotateY(0deg);
-  z-index: 10;
-}
-.flip-box:hover .front {
-  transform: rotateY(180deg);
-  z-index: -1;
-}
-.flip-box .back, .flip-box .front {
+
+ .flip-box .front {
+  cursor: pointer;
   position: relative;
   background-color: #1b2d61;
   color: white;
@@ -48,44 +42,14 @@ body {
   background-size: cover;
   background-position: center;
 }
-.flip-box .back {
-  background-color: #cecece;
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-  z-index: -1;
-  transform: rotateY(-180deg);
-}
-.flip-box .back:after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 30px;
-  height: 30px;
-  border: 15px solid transparent;
-  border-bottom-color: white;
-  border-left-color: white;
-}
+
 .flip-box .front {
   z-index: 10;
 }
 .flip-box .front .content {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
-.flip-box .front:after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 30px;
-  height: 30px;
-  border: 15px solid #cecece;
-  border-bottom-color: white;
-  border-right-color: white;
-}
+
 .flip-box .content {
   display: flex;
   justify-content: center;

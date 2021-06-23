@@ -11,7 +11,7 @@ body {
 
 .centered {
   width: 550px;
-  height: 110px;
+  height: 365px;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -32,7 +32,7 @@ label {
   position: absolute;
   top: 36.6666666667px;
   color: rgba(255, 255, 255, 0.5);
-  font: 400 36.6666666667px Roboto;
+  font: 400 22.6666666667px Roboto;
   cursor: text;
   transition: 0.25s ease;
 }

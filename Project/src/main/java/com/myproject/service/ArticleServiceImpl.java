@@ -20,4 +20,12 @@ public class ArticleServiceImpl implements ArticleService{
 		return articleMapper.selectArticlelist(a_id);
 	}
 
+	@Override
+	public int createArticle(ArticleVO vo) {
+		int n = 0;
+		vo.setA_num(articleMapper.selectArt_num());
+		n = articleMapper.createArticle(vo);
+		return n;
+	}
+
 }

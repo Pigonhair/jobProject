@@ -14,7 +14,7 @@ drop sequence profile_num
 create sequence profile_num nocache nocycle;
 
 INSERT INTO PROFILE (p_num, p_id, p_name, p_phone, p_department, p_img) 
-VALUES (profile_num.nextval, 'ab', '°Å´©', '010-1234-5678', 'developer','kim');
+VALUES (profile_num.nextval, 'pigonhair', 'ê±°ëˆ„', '010-1234-5678', 'developer','kim');
 
 INSERT INTO PROFILE (p_num, p_id, p_name, p_phone, p_department, p_img) 
-VALUES (profile_num.nextval, 'abc', 'Áö¼º', '010-1234-6789', 'developer','park');
+VALUES (profile_num.nextval, 'jiseong', 'ì§€ì„±', '010-1234-6789', 'developer','park');

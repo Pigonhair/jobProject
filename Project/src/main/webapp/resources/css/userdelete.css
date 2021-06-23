@@ -2,73 +2,74 @@
 
 
 table.sub_news{
-	background : white
+   background : white;
+    width: 700px;
 }
 .sub_news, .sub_news th, .sub_news td {
-	border: 0;
+   border: 0;
 }
 
 .sub_news a {
-	color: #383838;
-	text-decoration: none
+   color: #383838;
+   text-decoration: none
 }
 
 .sub_news {
-	width: 50%;
-	border-bottom: 1px solid #999;
-	color: #666;
-	font-size: 12px;
-	table-layout: fixed
+   width: 50%;
+   border-bottom: 1px solid #999;
+   color: #666;
+   font-size: 12px;
+   table-layout: fixed
 }
 
 .sub_news caption {
-	display: none
+   display: none
 }
 
 .sub_news th {
-	padding: 5px 0 6px;
-	border-top: solid 1px #999;
-	border-bottom: solid 1px #b2b2b2;
-	background-color: #f1f1f4;
-	color: #333;
-	font-weight: bold;
-	line-height: 20px;
-	vertical-align: top
+   padding: 5px 0 6px;
+   border-top: solid 1px #999;
+   border-bottom: solid 1px #b2b2b2;
+   background-color: #f1f1f4;
+   color: #333;
+   font-weight: bold;
+   line-height: 20px;
+   vertical-align: top
 }
 
 .sub_news td {
-	padding: 8px 0 9px;
-	border-bottom: solid 1px #d2d2d2;
-	text-align: center;
-	line-height: 18px;
+   padding: 8px 0 9px;
+   border-bottom: solid 1px #d2d2d2;
+   text-align: center;
+   line-height: 18px;
 }
 
 .sub_news .date, .sub_news .hit {
-	padding: 0;
-	font-family: Tahoma;
-	font-size: 11px;
-	line-height: normal
+   padding: 0;
+   font-family: Tahoma;
+   font-size: 11px;
+   line-height: normal
 }
 
 .sub_news .title {
-	text-align: left;
-	padding-left: 15px;
-	font-size: 13px;
+   text-align: left;
+   padding-left: 15px;
+   font-size: 13px;
 }
 
 .sub_news .title .pic, .sub_news .title .new {
-	margin: 0 0 2px;
-	vertical-align: middle
+   margin: 0 0 2px;
+   vertical-align: middle
 }
 
 .sub_news .title a.comment {
-	padding: 0;
-	background: none;
-	color: #f00;
-	font-size: 12px;
-	font-weight: bold
+   padding: 0;
+   background: none;
+   color: #f00;
+   font-size: 12px;
+   font-weight: bold
 }
 
 .sub_news tr.reply .title a {
-	padding-left: 16px;
+   padding-left: 16px;
 }

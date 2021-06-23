@@ -3,9 +3,27 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.myproject.mapper.ArticleMapper">
 
-	<select id="selectArticlelist" resultType="ArticleVO">		
-			SELECT *
-			FROM ARTICLE
-			WHERE a_id = #{a_id}		
+	<!-- Article_num 시퀀스 값 가져오기 -->
+	<select id="selectArt_num" resultType="int">
+		SELECT
+		article_num.nextval
+		FROM dual
 	</select>
+
+	<select id="selectArticlelist" resultType="ArticleVO">
+		SELECT *
+		FROM ARTICLE
+		WHERE a_id = #{a_id}
+	</select>
+
+	<insert id="createArticle">
+		INSERT INTO ARTICLE(a_num, a_id, a_writer, a_title,
+		a_content,
+		a_videocode)
+		VALUES
+		(#{a_num},
+		#{a_id},
+		#{a_writer}, #{a_title}, #{a_content}, #{a_videocode}
+		)
+	</insert>
 </mapper>

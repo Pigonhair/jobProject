@@ -55,6 +55,8 @@ public class MemberController {
 			// 로그인 성공
 			log.info("로그인 성공!");			
 			session.setAttribute("loginOK", JsonData.MemverJsonData(member));
+			session.setAttribute("loginId", member.getM_id());
+			session.setAttribute("loginName", member.getM_name());
 			return "1";
 
 		} else {
