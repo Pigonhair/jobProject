@@ -8,9 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,8 +22,8 @@ import com.myproject.service.MemberService;
 import lombok.extern.log4j.Log4j;
 
 /* 
-@Controller ¾î³ëÅ×ÀÌ¼ÇÀÇ °æ¿ì ÇØ´ç Å¬·¡½º¸¦ ½ºÇÁ¸µÀÇ ºóÀ¸·Î ÀÎ½ÄÇÏµµ·Ï ÇÏ±â À§ÇÔÀÌ°í, 
-@RequestMapping("/member/*")ÀÇ °æ¿ì '/member'·Î ½ÃÀÛÇÏ´Â ¸ğµç Ã³¸®¸¦ MemberController.java °¡ ÇÏµµ·Ï ÁöÁ¤ÇÏ´Â ¿ªÇÒ */
+@Controller ì–´ë…¸í…Œì´ì…˜ì˜ ê²½ìš° í•´ë‹¹ í´ë˜ìŠ¤ë¥¼ ìŠ¤í”„ë§ì˜ ë¹ˆìœ¼ë¡œ ì¸ì‹í•˜ë„ë¡ í•˜ê¸° ìœ„í•¨ì´ê³ , 
+@RequestMapping("/member/*")ì˜ ê²½ìš° '/member'ë¡œ ì‹œì‘í•˜ëŠ” ëª¨ë“  ì²˜ë¦¬ë¥¼ MemberController.java ê°€ í•˜ë„ë¡ ì§€ì •í•˜ëŠ” ì—­í•  */
 
 @Controller
 @Log4j
@@ -40,28 +38,28 @@ public class MemberController {
 	// => @RequestMapping(value="login", method=RequestMethod.POST)
 	public String LoginPost(HttpServletRequest request, @RequestParam("id") String m_id,
 			@RequestParam("pwd") String m_pwd) {
-		log.info("·Î±×ÀÎÄÁÆ®·Ñ·¯µé¾î¿È");
+		log.info("ë¡œê·¸ì¸ì»¨íŠ¸ë¡¤ëŸ¬ë“¤ì–´ì˜´");
 
-		// Å¬¶óÀÌ¾ğÆ®°¡ º¸³½ ID°ª
+		// í´ë¼ì´ì–¸íŠ¸ê°€ ë³´ë‚¸ IDê°’
 		String ID = m_id.trim();
-		log.info("id°ªÀº: "+ ID);
-		// Å¬¶óÀÌ¾ğÆ®°¡ º¸³½ PWD°ª
+		log.info("idê°’ì€: "+ ID);
+		// í´ë¼ì´ì–¸íŠ¸ê°€ ë³´ë‚¸ PWDê°’
 		String PWD = m_pwd.trim();
-		log.info("pwd°ªÀº: "+ PWD);
+		log.info("pwdê°’ì€: "+ PWD);
 		
 		HttpSession session=request.getSession();
 		MemberVO member = memberService.checkMemberIdPwd(ID,PWD);
 		if (member != null) {
-			// ·Î±×ÀÎ ¼º°ø
-			log.info("·Î±×ÀÎ ¼º°ø!");			
+			// ë¡œê·¸ì¸ ì„±ê³µ
+			log.info("ë¡œê·¸ì¸ ì„±ê³µ!");			
 			session.setAttribute("loginOK", JsonData.MemverJsonData(member));
 			session.setAttribute("loginId", member.getM_id());
 			session.setAttribute("loginName", member.getM_name());
 			return "1";
 
 		} else {
-			// ·Î±×ÀÎ ½ÇÆĞ
-			log.info("·Î±×ÀÎ ½ÇÆĞ!");
+			// ë¡œê·¸ì¸ ì‹¤íŒ¨
+			log.info("ë¡œê·¸ì¸ ì‹¤íŒ¨!");
 			return "0";
 		}
 	
@@ -71,18 +69,18 @@ public class MemberController {
 	@PostMapping("/join")
 	// => @RequestMapping(value="login", method=RequestMethod.POST)
 	public String joinPost(MemberVO vo) {
-		log.info("È¸¿ø°¡ÀÔÄÁÆ®·Ñ·¯µé¾î¿È");
+		log.info("íšŒì›ê°€ì…ì»¨íŠ¸ë¡¤ëŸ¬ë“¤ì–´ì˜´");
 
 		String path = "";
 
 		int n = memberService.insertMember(vo);
-		log.info("n°ªÀº : " + n);
+		log.info("nê°’ì€ : " + n);
 		if (n > 0) {
-			log.info("È¸¿ø°¡ÀÔ ¼º°ø!");
+			log.info("íšŒì›ê°€ì… ì„±ê³µ!");
 			path = "index";
 
 		} else {
-			log.info("È¸¿ø°¡ÀÔ ½ÇÆĞ!");
+			log.info("íšŒì›ê°€ì… ì‹¤íŒ¨!");
 			return "";
 		}
 
@@ -93,17 +91,17 @@ public class MemberController {
 	@PostMapping("/idCheck")
 	// => @RequestMapping(value="idCheck", method=RequestMethod.POST)
 	public String idCheckPost(@RequestParam("id") String m_id) {
-		log.info("idCheckÄÁÆ®·Ñ·¯µé¾î¿È");
+		log.info("idCheckì»¨íŠ¸ë¡¤ëŸ¬ë“¤ì–´ì˜´");
 
-		// Å¬¶óÀÌ¾ğÆ®°¡ º¸³½ ID°ª
+		// í´ë¼ì´ì–¸íŠ¸ê°€ ë³´ë‚¸ IDê°’
 		String ID = m_id.trim();
-		log.info("id°ªÀº: "+ ID);
+		log.info("idê°’ì€: "+ ID);
 		
 		MemberVO member = memberService.IdCheck(ID);
 			
-		if(member != null) {//°á°ú °ªÀÌ ÀÖÀ¸¸é ¾ÆÀÌµğ Á¸Àç	
+		if(member != null) {//ê²°ê³¼ ê°’ì´ ìˆìœ¼ë©´ ì•„ì´ë”” ì¡´ì¬	
 			return "-1";
-		} else {		//¾øÀ¸¸é ¾ÆÀÌµğ Á¸Àç X
+		} else {		//ì—†ìœ¼ë©´ ì•„ì´ë”” ì¡´ì¬ X
 			log.info("null");
 			return "0";
 		}
@@ -112,7 +110,7 @@ public class MemberController {
 	
 	@RequestMapping(value="userList", method=RequestMethod.GET)
 	public ModelAndView UserListGet() {
-		log.info("»ç¿ëÀÚ ¸®½ºÆ®");
+		log.info("ì‚¬ìš©ì ë¦¬ìŠ¤íŠ¸");
 
 		List<HashMap<String, MemberVO>> vo = memberService.UserList();
 		

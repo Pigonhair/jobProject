@@ -4,7 +4,7 @@ function clck(i) {
 		var input = new Array();
 		input[i] = document.createElement("input");
 		$(input[i]).attr("type", "hidden");
-		$(input[i]).attr("name", "m_grade" + i);
+		$(input[i]).attr("name", "m_grade");
 		$(input[i]).attr("id", "m_grade" + i);
 		$(input[i]).val(grade);
 		$('#change_chk' + i).append(input[i]);

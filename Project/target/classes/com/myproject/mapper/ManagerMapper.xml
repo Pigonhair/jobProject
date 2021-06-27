@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myproject.mapper.ManagerMapper">
+
+	<update id="Restore" parameterType="java.util.List" >
+		UPDATE MEMBER SET
+        	m_grade = CASE
+        	 <foreach collection="list" item="item" index="i" separator="">
+        	 	WHEN m_id=#{list.id[i]}  THEN #{list.grade[i]} 
+        	 </foreach>
+        	END
+			WHERE
+        		m_id IN (
+        		<foreach collection="list" item="item" index="i" separator=",">
+        		#{list.id[i]}
+        		</foreach>
+        		)
+
+	</update>
+
+	
+</mapper>

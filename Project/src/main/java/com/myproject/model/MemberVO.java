@@ -1,5 +1,7 @@
 package com.myproject.model;
 
+import java.util.List;
+
 import lombok.Data;
 
 @Data
@@ -31,5 +33,5 @@ public class MemberVO {
 	private String cache;
 	private String token;
 	private String salt;
-		
+
 }

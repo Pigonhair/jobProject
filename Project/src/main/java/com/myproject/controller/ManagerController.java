@@ -1,25 +1,26 @@
 package com.myproject.controller;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.myproject.jsondata.JsonData;
 import com.myproject.model.MemberVO;
 import com.myproject.service.ManagerService;
 
 import lombok.extern.log4j.Log4j;
 
 /* 
-@Controller ¾î³ëÅ×ÀÌ¼ÇÀÇ °æ¿ì ÇØ´ç Å¬·¡½º¸¦ ½ºÇÁ¸µÀÇ ºóÀ¸·Î ÀÎ½ÄÇÏµµ·Ï ÇÏ±â À§ÇÔÀÌ°í, 
+@Controller ì–´ë…¸í…Œì´ì…˜ì˜ ê²½ìš° í•´ë‹¹ í´ë˜ìŠ¤ë¥¼ ìŠ¤í”„ë§ì˜ ë¹ˆìœ¼ë¡œ ì¸ì‹í•˜ë„ë¡ í•˜ê¸° ìœ„í•¨ì´ê³ , 
  */
 
 @Controller
@@ -33,37 +34,73 @@ public class ManagerController {
 	@GetMapping("/m_delete")
 	// => @RequestMapping(value="login", method=RequestMethod.POST)
 	public String DeletePost(HttpServletRequest request, MemberVO vo) {
-		log.info("°èÁ¤ »èÁ¦");
-		
+		log.info("ê³„ì • ì‚­ì œ");
+
 		return "";
 	}
-	
+
 	@GetMapping("/m_remove")
 	// => @RequestMapping(value="login", method=RequestMethod.POST)
 	public String RemovePost(HttpServletRequest request, MemberVO vo) {
-		log.info("°èÁ¤ ¿µ±¸»èÁ¦");
-		
+		log.info("ê³„ì • ì˜êµ¬ì‚­ì œ");
+
 		return "";
 	}
-	
+
 	@GetMapping("/m_restore")
 	// => @RequestMapping(value="login", method=RequestMethod.POST)
 	public String RestorePost(HttpServletRequest request, MemberVO vo) {
-		log.info("°èÁ¤ º¹±¸");
-		
+		log.info("ê³„ì • ë³µêµ¬");
+
 		return "";
 	}
-	
+
 	@PostMapping("/m_grade")
-	   // => @RequestMapping(value="login", method=RequestMethod.POST)
-	   public String GradeChangePost(HttpServletRequest request, MemberVO vo) {
-	      log.info("°èÁ¤ µî±Ş º¯°æ");
-	      
-	      
-	      log.info("¾ÆÀÌµğ°ª : " + vo.getM_id());
-	      log.info("µî±Ş : " + vo.getM_grade());
-	      
-	      return "";
-	   }
+	@ResponseBody
+	public String GradeChangePost(HttpServletRequest request, MemberVO vo) {
+
+		log.info("ì•„ì´ë””: " + vo.getM_id());
+		log.info("grade: " + vo.getM_grade());
+
+		String[] idList = vo.getM_id().split(",");
+		String[] gradeList = vo.getM_grade().split(",");
+		
+//		java.util.List<String> list = new ArrayList<String>(Arrays.asList(idList));
+//		if(list != null){
+//		    for(int i = 0; i < list.size(); i++){
+//		        System.out.println(list.get(i));
+//		    }
+//		}
+//		
+//		java.util.List<String> list2 = new ArrayList<String>(Arrays.asList(gradeList));
+//		if(list2 != null){
+//		    for(int i = 0; i < list.size(); i++){
+//		        System.out.println(list2.get(i));
+//		    }
+//		}
+
+//		HashMap<String, Object> map = new HashMap<String, Object>();
+//		HashMap<String, Object> map2 = new HashMap<String, Object>();
+//		HashMap<String, Object> map3 = new HashMap<String, Object>();
+
+//		map.put("id", idList);
+//		map2.put("grade", gradeList);
+
+//		List list = new ArrayList<Object>();
+//		list.add(map);
+//		list.add(map2);
+// 
+		List list = new ArrayList<Object>();
+        Map<String, Object> map = new HashMap<String, Object>();
+      
+        map.put("grade", gradeList);
+        list.add(map);
+        map.put("id", idList);
+        list.add(map);
+        log.info(list);
+           
+		managerService.RestoreMember(list);
+		return "";
+	}
 
 }

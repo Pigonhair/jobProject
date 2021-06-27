@@ -1,15 +1,16 @@
 package com.myproject.service;
 
+import java.util.List;
 
 public interface ManagerService {
 
-	/* ¸â¹ö ¿µ±¸»èÁ¦ */
+	/* ë©¤ë²„ ì˜êµ¬ì‚­ì œ */
 	public int RemoveMember(String m_id);
 	
-	/* ¸â¹ö »èÁ¦ */
+	/* ë©¤ë²„ ì‚­ì œ */
 	public int DeleteMember(String m_id);
 	
-	/* ¸â¹ö º¹±¸ */
-	public int RestoreMember(String m_id);
+	/* ë©¤ë²„ë“±ê¸‰ ë³€ê²½ */
+	public List RestoreMember(List list);
 	
 }
